@@ -15,23 +15,19 @@ firebase.initializeApp(firebaseConfig);
 $("#signup-form").submit(function(e) {
   e.preventDefault();
   //get the username(email) and password from the form
-  //change the following code
-  var email = document.getElementById("userIn");
-  console.log("email");
-  var password = document.getElementById("passIn");
-  console.log("password");
+  // change the following code
+  var email = "doryanz@usca.edu";
+  var password = "tacoman";
 
   // create a user with email address and password
   firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
-    .then(success => {
+    .then(user => {
       // Signed in
+      // ...
 
       console.log("You are signed up");
-      let user = firebase.auth().currentUser;
-
-      user.updateProfile({ displayName: "Brendon Esposito" });
       window.location.href = "Login.html";
     })
     .catch(error => {
@@ -39,6 +35,5 @@ $("#signup-form").submit(function(e) {
       var errorMessage = error.message;
       console.log(error.code);
       console.log(errorMessage);
-      console.log("error");
     });
 });
